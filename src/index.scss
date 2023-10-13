@@ -1,0 +1,57 @@
+//? Font Families from Google fonts - lato and Montserrat
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@500;600;700;800&display=swap");
+
+//? Importing colors and fonts
+@import "./assets/variable";
+
+//? Font reset 1rem = 10px
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+
+  @media (max-width: 26.56em) {
+    font-size: 56.25%;
+  }
+  @media (max-width: 20em) {
+    font-size: 50%;
+  }
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $font-2;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: $font-dark;
+  background-color: $white;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.heading__primary,
+.heading__secondary {
+  user-select: none;
+  line-height: normal;
+}
+.heading__primary {
+  font-family: $font;
+  font-size: 4.6rem;
+  font-weight: 900;
+  color: $font-light;
+}
+
+.heading__secondary {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: $font-dark;
+}

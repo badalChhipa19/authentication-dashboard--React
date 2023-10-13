@@ -1,0 +1,151 @@
+@import "./../../assets/variable";
+
+.right {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  padding-left: 18%;
+
+  @media (max-width: 90em) {
+    padding-left: 10%;
+  }
+
+  @media (max-width: 64em) {
+    justify-self: c enter;
+    width: max-content;
+    align-self: center;
+    padding-left: 0;
+  }
+
+  @media (max-width: 20em) {
+    padding-left: 3rem;
+  }
+
+  .signup__title {
+    display: none;
+  }
+  .form__text {
+    margin-top: -2rem;
+    margin-bottom: 1rem;
+    color: $font-mid;
+  }
+
+  .direct__signIn_box {
+    display: inherit;
+    gap: 1rem;
+    padding-left: 2rem;
+    width: max-content;
+
+    .direct__signin_btn {
+      border: none;
+      font-size: inherit;
+      display: inherit;
+      gap: 1rem;
+      align-items: center;
+      background-color: $white;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.6rem;
+      color: $font-mid;
+      cursor: pointer;
+      transition: color 0.3s, transform 0.3s;
+
+      @media (max-width: 20em) {
+        flex-direction: row-reverse;
+      }
+
+      &:hover {
+        color: $font-dark;
+        transform: translateY(-1px) scale(1.03);
+      }
+
+      & > .icon__text > span {
+        @media (max-width: 20em) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .signin__form {
+    background-color: $white;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    width: fit-content;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .forget__password {
+      margin-left: 2rem;
+    }
+
+    & > .sign__up_btn {
+      display: none;
+    }
+    & > .input__name {
+      display: none;
+    }
+  }
+  .registration__link {
+    @media (max-width: 64em) {
+      color: $font-mid;
+    }
+  }
+
+  .form__link {
+    text-decoration: none;
+    color: $bg-blue;
+    cursor: pointer;
+
+    @media (max-width: 64em) {
+      color: $font-light;
+    }
+  }
+
+  .registration__link {
+    margin-left: 6rem;
+
+    &_signin {
+      display: none;
+    }
+  }
+
+  #abstract__form_details {
+    display: none;
+
+    &:checked ~ * .input__name {
+      display: flex;
+    }
+
+    &:checked ~ .direct__signIn_box {
+      display: none;
+    }
+
+    &:checked ~ * .sign__up_btn {
+      display: inline-block;
+    }
+
+    &:checked ~ * .sign__in_btn {
+      display: none;
+    }
+
+    &:checked ~ .signin__title,
+    &:checked ~ .form__text {
+      display: none;
+    }
+
+    &:checked ~ .signup__title {
+      display: inline-block;
+    }
+
+    &:checked ~ .registration__link_signin {
+      display: inline-block;
+    }
+    &:checked ~ .registration__link_signup {
+      display: none;
+    }
+  }
+}

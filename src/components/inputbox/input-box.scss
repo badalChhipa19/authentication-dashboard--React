@@ -1,0 +1,27 @@
+@import "./../../assets/variable";
+
+.input__box {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  gap: 1rem;
+
+  @media (max-width: 20em) {
+    width: 25rem;
+  }
+
+  .input {
+    font-size: 1.6rem;
+    padding: 0.4rem 0.6rem;
+    font-family: inherit;
+    border: none;
+    background-color: $bg-input;
+    margin-left: 1rem;
+    border-radius: 0.6rem;
+    // margin-bottom: 2rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

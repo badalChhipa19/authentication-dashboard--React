@@ -1,0 +1,20 @@
+@import "./../../assets/variable";
+
+.submit__btn {
+  font-size: inherit;
+  border: none;
+  background-color: $bg-blue;
+  padding: 0.4rem 0.6rem;
+  width: 100%;
+  border-radius: 0.6rem;
+  color: $font-light;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s;
+
+  &:hover {
+    transform: translateY(-1px) scale(1.02);
+    opacity: 0.9;
+  }
+}
