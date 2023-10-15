@@ -33,6 +33,7 @@ body {
   letter-spacing: 1px;
   color: $font-dark;
   background-color: $white;
+  position: relative;
 
   &::-webkit-scrollbar {
     display: none;
@@ -54,4 +55,8 @@ body {
   font-size: 2.4rem;
   font-weight: 800;
   color: $font-dark;
+}
+
+.shadow {
+  box-shadow: 0 0 1rem 0.4rem $font-light;
 }

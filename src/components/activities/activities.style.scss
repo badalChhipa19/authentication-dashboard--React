@@ -1,0 +1,10 @@
+@import "./../../assets/variable";
+
+.dashboard__activities {
+  background-color: $white;
+  overflow: hidden;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}

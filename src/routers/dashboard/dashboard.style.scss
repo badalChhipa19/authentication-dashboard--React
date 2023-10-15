@@ -1,0 +1,34 @@
+@import "./../../assets/variable";
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  row-gap: 2rem;
+  column-gap: 4rem;
+  height: 100vh;
+  padding: 4rem;
+  background-color: $bg-white;
+
+  &__sidebar,
+  &__product,
+  &__activities,
+  &__top_nav {
+    border-radius: 1rem;
+  }
+
+  &__sidebar {
+    background-color: $bg-blue;
+    grid-area: 1 / 1 / -1/ 2;
+  }
+  &__top_nav {
+    grid-area: 1 / 2 / 2/ -1;
+  }
+  &__activities {
+    grid-area: 2 / 2 / 5 / -1;
+    width: 100%;
+  }
+  &__product {
+    grid-area: 5 / 2 / -1 / -1;
+  }
+}
