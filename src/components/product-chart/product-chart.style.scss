@@ -4,4 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  @media (max-width: 33.12em) {
+    width: 100%;
+  }
 }

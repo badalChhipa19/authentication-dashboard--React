@@ -6,6 +6,9 @@
   display: grid;
   justify-content: center;
   align-content: center;
+  @media (max-width: 33.12em) {
+    width: 100%;
+  }
 
   .add__profile_btn {
     display: flex;

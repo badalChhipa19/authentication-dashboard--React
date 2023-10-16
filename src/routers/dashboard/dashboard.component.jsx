@@ -40,6 +40,13 @@ const Dashboard = () => {
 
   return (
     <section className="dashboard">
+      <input type="checkbox" id="abstract__sidebar_checkbox" />
+      <label
+        for="abstract__sidebar_checkbox"
+        className="abstract__sidebar_label"
+      >
+        <div className="lines"></div>
+      </label>
       <Sidebar />
       <TopNav
         statistics={{
