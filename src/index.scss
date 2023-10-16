@@ -56,6 +56,11 @@ body {
   font-weight: 800;
   color: $font-dark;
 }
+.heading__tertiary {
+  color: $white;
+  font-size: 3.8rem;
+  font-weight: 700;
+}
 
 .shadow {
   box-shadow: 0 0 1rem 0.4rem $font-light;

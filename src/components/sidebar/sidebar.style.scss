@@ -1,4 +1,32 @@
 @import "./../../assets/variable";
 
-.dashboard {
+.dashboard__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding: 4rem 0 0 4rem;
+
+  & > .sidebar__navs_list {
+    list-style: none;
+    display: inherit;
+    flex-direction: inherit;
+    gap: 2rem;
+
+    & > .list__item {
+      display: inherit;
+      gap: 2rem;
+      font-size: 2rem;
+      align-items: center;
+      cursor: pointer;
+
+      & > ion-icon {
+        color: $white;
+      }
+
+      & > .item__link {
+        color: $white;
+        text-decoration: none;
+      }
+    }
+  }
 }

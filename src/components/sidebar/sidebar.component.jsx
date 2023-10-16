@@ -3,7 +3,7 @@ import "./sidebar.style.scss";
 const Sidebar = () => {
   return (
     <div className="dashboard__sidebar">
-      <h2 className="heading__secondary">Board</h2>
+      <h3 className="heading__tertiary">Infinity</h3>
       <ul className="sidebar__navs_list">
         <li className="list__item">
           <ion-icon name="pie-chart-outline"></ion-icon>
