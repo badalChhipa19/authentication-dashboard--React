@@ -1,7 +1,18 @@
 import InputBox from "./../inputbox/input-box.component";
 import InputBtn from "../inputbtn/input-btn.component";
-
+import { signInwithGooglePopup } from "./../../utils/firebase.util";
 import "./form.style.scss";
+
+const signInWithGoogleHandler = async () => {
+  try {
+    const a = await signInwithGooglePopup();
+    if (a) {
+      window.location = "/dashboard";
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 const Form = function () {
   return (
@@ -11,7 +22,10 @@ const Form = function () {
       <h2 className="heading__secondary signup__title">Sign Up</h2>
       <p className="form__text">Sign in to your account</p>
       <div className="direct__signIn_box">
-        <button className="google__signin_btn direct__signin_btn">
+        <button
+          onClick={signInWithGoogleHandler}
+          className="google__signin_btn direct__signin_btn"
+        >
           <svg
             width="16"
             height="16"
