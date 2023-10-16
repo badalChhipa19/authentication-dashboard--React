@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import InputBox from "./../inputbox/input-box.component";
 import InputButton from "./../inputbtn/input-btn.component";
