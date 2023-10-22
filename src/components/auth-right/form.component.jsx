@@ -5,6 +5,7 @@ import {
   signInwithGooglePopup,
   createUserDocument,
   createUserAccount,
+  signInUserAccount,
 } from "./../../utils/firebase.util";
 
 import "./form.style.scss";
@@ -58,7 +59,18 @@ const Form = function () {
 
   const signInHandler = async (e) => {
     e.preventDefault();
-    console.log("In");
+    try {
+      const user = await signInUserAccount(email, password);
+      console.log(user);
+    } catch (error) {
+      if (error.code === "auth/invalid-login-credentials") {
+        alert("Invalid Credentials.");
+      } else if (error.code === "auth/invalid-email") {
+        alert("Incorrect Email.");
+      } else {
+        alert(error.code);
+      }
+    }
   };
 
   return (

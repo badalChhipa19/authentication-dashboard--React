@@ -1,7 +1,7 @@
 import Side from "../../components/auth-left/side.component";
 import Form from "../../components/auth-right/form.component";
 
-// import "./authentication.style.scss";
+import "./authentication.style.scss";
 
 function Authentication() {
   return (
