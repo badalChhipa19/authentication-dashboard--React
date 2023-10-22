@@ -1,5 +1,10 @@
 import "./input-box.scss";
 
+const handleKeyPress = (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault(); // Prevent the Enter keypress
+  }
+};
 const InputBox = (props) => {
   const {
     labelContent,
@@ -29,6 +34,7 @@ const InputBox = (props) => {
         onChange={onChangeHandler}
         value={values}
         name={names}
+        onKeyDown={handleKeyPress}
       />
     </div>
   );

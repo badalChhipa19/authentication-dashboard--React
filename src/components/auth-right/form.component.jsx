@@ -1,20 +1,66 @@
+import { useState } from "react";
 import InputBox from "./../inputbox/input-box.component";
 import InputBtn from "../inputbtn/input-btn.component";
-import { signInwithGooglePopup } from "./../../utils/firebase.util";
+import {
+  signInwithGooglePopup,
+  createUserDocument,
+  createUserAccount,
+} from "./../../utils/firebase.util";
+
 import "./form.style.scss";
 
-const signInWithGoogleHandler = async () => {
-  try {
-    const a = await signInwithGooglePopup();
-    if (a) {
-      window.location = "/dashboard";
-    }
-  } catch (err) {
-    console.log(err);
-  }
+const defaultFormFields = {
+  displayName: "",
+  email: "",
+  password: "",
 };
 
 const Form = function () {
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { displayName, email, password } = formFields;
+
+  const signInWithGoogleHandler = async () => {
+    try {
+      const { user } = await signInwithGooglePopup();
+      createUserDocument(user);
+      if (user) {
+        window.location = "/dashboard";
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+    setFormFields({ ...formFields, [name]: value });
+  };
+
+  const signUpHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const { user } = await createUserAccount(email, password);
+      if (user) {
+        await createUserDocument(user, { displayName });
+      }
+    } catch (error) {
+      if (error.code === "auth/weak-password") {
+        alert("Password should be 6 characters long.");
+      } else if (error.code === "auth/invalid-email") {
+        alert("Incorrect Email.");
+      } else if (error.code === "auth/email-already-in-use") {
+        alert("Email in user.");
+      } else {
+        alert(error.code);
+      }
+    }
+  };
+
+  const signInHandler = async (e) => {
+    e.preventDefault();
+    console.log("In");
+  };
+
   return (
     <div className="right">
       <input type="checkbox" id="abstract__form_details" />
@@ -33,7 +79,7 @@ const Form = function () {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g id="google-icon 1" clip-path="url(#clip0_0_170)">
+            <g id="google-icon 1" clipPath="url(#clip0_0_170)">
               <path
                 id="Vector"
                 d="M15.4001 8.116C15.4001 7.48636 15.3478 7.02688 15.2346 6.5504H7.87695V9.39229H12.1957C12.1087 10.0985 11.6385 11.1621 10.5936 11.8768L10.579 11.972L12.9053 13.7331L13.0665 13.7488C14.5467 12.4129 15.4001 10.4474 15.4001 8.116Z"
@@ -78,7 +124,7 @@ const Form = function () {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g id="apple 1" clip-path="url(#clip0_0_178)">
+            <g id="apple 1" clipPath="url(#clip0_0_178)">
               <path
                 id="Vector"
                 d="M7.53348 1.52879C8.55093 0.197925 9.96544 0.191437 9.96544 0.191437C9.96544 0.191437 10.1758 1.44268 9.16505 2.64802C8.08578 3.93506 6.85904 3.72446 6.85904 3.72446C6.85904 3.72446 6.62869 2.71225 7.53348 1.52879ZM6.98845 4.60095C7.51188 4.60095 8.48334 3.8869 9.74783 3.8869C11.9244 3.8869 12.7807 5.42395 12.7807 5.42395C12.7807 5.42395 11.106 6.2737 11.106 8.33559C11.106 10.6616 13.1922 11.4632 13.1922 11.4632C13.1922 11.4632 11.7339 15.5368 9.76404 15.5368C8.8593 15.5368 8.15592 14.9317 7.20264 14.9317C6.23118 14.9317 5.26715 15.5594 4.63927 15.5594C2.84051 15.5594 0.568054 11.6952 0.568054 8.58896C0.568054 5.53288 2.49154 3.92971 4.29569 3.92971C5.46855 3.92971 6.3787 4.60095 6.98845 4.60095Z"
@@ -101,6 +147,7 @@ const Form = function () {
           </p>
         </button>
       </div>
+
       <form className="signin__form">
         <InputBox
           labelContent="Enter Name"
@@ -108,16 +155,25 @@ const Form = function () {
           inputId="input_name"
           inputClass="input__name"
           className="form__input_name"
+          values={displayName}
+          names="displayName"
+          onChangeHandler={changeHandler}
         />
         <InputBox
           labelContent="Enter address"
           type="text"
           inputId="input_address"
+          values={email}
+          names="email"
+          onChangeHandler={changeHandler}
         />
         <InputBox
           labelContent="Password"
           type="password"
           inputId="input_password"
+          values={password}
+          names="password"
+          onChangeHandler={changeHandler}
         />
         <a href="http://nothing.com" className="forget__password form__link">
           Forgot Password?
@@ -127,14 +183,17 @@ const Form = function () {
           btnClass="sign__in_btn"
           btnType="submit"
           btnName="SignIn"
+          onClickHandler={signInHandler}
         />
         <InputBtn
           value="Sign Up"
           btnClass="sign__up_btn"
           btnType="submit"
           btnName="SignUp"
+          onClickHandler={signUpHandler}
         />
       </form>
+
       <p className="registration__link registration__link_signup">
         Don't have an account?
         <label

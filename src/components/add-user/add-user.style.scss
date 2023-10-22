@@ -12,7 +12,6 @@
 
   .add__profile_btn {
     display: flex;
-    // display: none;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
@@ -38,6 +37,13 @@
     grid-template-rows: repeat(3, 1fr);
     gap: 3rem;
     padding: 1rem;
+
+    @media (max-width: 48em) {
+      gap: 3rem;
+      display: flex !important;
+      flex-direction: column;
+      display: none;
+    }
 
     & > .heading__secondary {
       grid-area: 1 / 1/ 2 / -1;
