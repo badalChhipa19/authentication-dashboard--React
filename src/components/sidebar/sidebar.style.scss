@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: column;
   gap: 5rem;
-  padding: 4rem 0 0 4rem;
+  padding: 4rem;
+  border-radius: 1rem;
 
   & > .sidebar__navs_list {
     list-style: none;

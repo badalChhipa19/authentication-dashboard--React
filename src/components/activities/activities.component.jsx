@@ -17,24 +17,14 @@ const Activites = () => {
 
   const options = {
     colors: ["#98D89E", "#EE8484"],
-    title: "Population of Largest U.S. Cities",
-    chartArea: {
-      width: "100%",
-    },
-    hAxis: { title: "City" },
-    vAxis: { title: "Count" },
+    width: "100%",
+    height: "100%",
   };
 
   return (
-    <div className="dashboard__activities shadow">
+    <div className="dashboard__activities box__utils">
       <h2 className="heading__secondary">Activities</h2>
-      <Chart
-        chartType="Bar"
-        width="100%"
-        height="fit-content"
-        data={data}
-        options={options}
-      />
+      <Chart chartType="Bar" data={data} options={options} legendToggle />
     </div>
   );
 };

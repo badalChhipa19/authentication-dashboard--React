@@ -1,12 +1,10 @@
 .dashboard__product {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   gap: 3rem;
 }
 
 .product__user,
 .product__chart {
   padding: 2rem;
-  border-radius: 1rem;
-  background-color: #fff;
 }

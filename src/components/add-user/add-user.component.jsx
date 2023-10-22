@@ -57,18 +57,13 @@ const AddUsers = () => {
     const checkbox = document.querySelector("#abstract__profile_form");
     if (name === "" || email === "" || phone === "") return;
 
-    //TODO: storing data in case want to show data after refreshing
-    localStorage.setItem("profile", JSON.stringify(formFields));
     addProfileBtn.style.display = "none";
     details.style.display = "grid";
     checkbox.checked = false;
   };
 
-  //TODO: Getting data from localstorge if want to show
-  // const data = JSON.parse(localStorage.getItem("profile"));
-
   return (
-    <div className="product__user shadow">
+    <div className="product__user box__utils">
       <input type="checkbox" id="abstract__profile_form" />
       <div className="add__profile_form">
         <div className="add__profile_box">

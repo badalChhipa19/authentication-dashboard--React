@@ -11,7 +11,7 @@ const TopNav = ({ statistics }) => {
     <div className="dashboard__top_nav">
       <TitleBox />
       <div className="top__nav_statistics">
-        <div className="revenues topnav__subdiv shadow">
+        <div className="revenues topnav__subdiv box__utils">
           <div className="topnav__icon_box">
             <svg
               width="20"
@@ -26,7 +26,7 @@ const TopNav = ({ statistics }) => {
               />
             </svg>
           </div>
-          <p className="topnav__text">Total Revenues</p>
+          <p className="topnav__title">Total Revenues</p>
           <div className="topnav__details_box">
             <p className="topnav__details_price">
               $
@@ -38,7 +38,7 @@ const TopNav = ({ statistics }) => {
           </div>
         </div>
 
-        <div className="transactions topnav__subdiv shadow">
+        <div className="transactions topnav__subdiv box__utils">
           <div className="topnav__icon_box">
             <svg
               width="16"
@@ -62,7 +62,7 @@ const TopNav = ({ statistics }) => {
           </div>
         </div>
 
-        <div className="likes topnav__subdiv shadow">
+        <div className="likes topnav__subdiv box__utils">
           <div className="topnav__icon_box">
             <svg
               width="18"
@@ -86,7 +86,7 @@ const TopNav = ({ statistics }) => {
           </div>
         </div>
 
-        <div className="users topnav__subdiv shadow">
+        <div className="users topnav__subdiv box__utils">
           <div className="topnav__icon_box">
             <svg
               width="21"

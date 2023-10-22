@@ -20,7 +20,7 @@ const ProductChart = () => {
   };
 
   return (
-    <div className="product__chart shadow">
+    <div className="product__chart box__utils">
       <Chart chartType="PieChart" width="100%" data={data} options={options} />
     </div>
   );

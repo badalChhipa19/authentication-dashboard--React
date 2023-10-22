@@ -70,6 +70,8 @@ body {
   font-weight: 700;
 }
 
-.shadow {
+.box__utils {
   box-shadow: 0 0 1rem 0.4rem $font-light;
+  border-radius: 1rem;
+  background-color: $white;
 }
