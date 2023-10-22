@@ -2,20 +2,26 @@
 
 .authentication {
   display: flex;
+  justify-content: space-around;
+  padding: 0 5rem;
   margin: 1.5rem;
   min-height: 96vh;
   background-image: linear-gradient(100deg, $bg-blue 50%, $bg-white 50%);
   position: relative;
 
-  @media (max-width: 64em) {
-    flex-direction: column;
-    align-items: center;
-    background-image: none;
-    background-color: $bg-blue;
+  @media (max-width: 57.5em) {
+    padding: 0 1rem;
   }
-
-  @media (max-width: 26.56em) {
+  @media (max-width: 52.5em) {
+    flex-direction: column;
+    // min-width: 100%;
+    align-items: center;
+    padding: 0;
+    background-image: linear-gradient(8deg, $bg-white 70%, $bg-blue 70%);
+  }
+  @media (max-width: 37.5em) {
     margin: 0;
     min-height: 100vh;
+    background-image: linear-gradient(12deg, $bg-white 68%, $bg-blue 68%);
   }
 }

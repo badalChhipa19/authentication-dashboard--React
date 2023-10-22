@@ -2,25 +2,14 @@
 
 .right {
   display: flex;
-  width: 50%;
   flex-direction: column;
   gap: 2rem;
   justify-content: center;
-  padding-left: 18%;
+  padding: 2rem;
 
-  @media (max-width: 90em) {
-    padding-left: 10%;
-  }
-
-  @media (max-width: 64em) {
-    justify-self: c enter;
-    width: max-content;
-    align-self: center;
-    padding-left: 0;
-  }
-
-  @media (max-width: 20em) {
-    padding-left: 3rem;
+  @media (max-width: 26.56em) {
+    padding: 0;
+    padding-top: 4rem;
   }
 
   .signup__title {
@@ -34,9 +23,14 @@
 
   .direct__signIn_box {
     display: inherit;
+    justify-content: space-between;
     gap: 1rem;
     padding-left: 2rem;
-    width: max-content;
+    max-width: 100%;
+
+    @media (max-width: 26.56em) {
+      flex-direction: column;
+    }
 
     .direct__signin_btn {
       border: none;
@@ -45,14 +39,18 @@
       gap: 1rem;
       align-items: center;
       background-color: $white;
-      padding: 0.2rem 0.4rem;
+      padding: 0.6rem 2rem;
       border-radius: 0.6rem;
       color: $font-mid;
       cursor: pointer;
       transition: color 0.3s, transform 0.3s;
 
-      @media (max-width: 20em) {
+      @media (max-width: 76.25em) {
         flex-direction: row-reverse;
+      }
+
+      @media (max-width: 26.56em) {
+        flex-direction: row;
       }
 
       &:hover {
@@ -60,9 +58,13 @@
         transform: translateY(-1px) scale(1.03);
       }
 
-      & > .icon__text > span {
-        @media (max-width: 20em) {
+      & .icon__text span {
+        @media (max-width: 76.25em) {
           display: none;
+        }
+
+        @media (max-width: 26.56em) {
+          display: initial;
         }
       }
     }
@@ -70,7 +72,7 @@
 
   .signin__form {
     background-color: $white;
-    padding: 1rem 2rem;
+    padding: 4rem 2rem;
     border-radius: 1rem;
     width: fit-content;
     margin-left: 2rem;
@@ -90,23 +92,17 @@
     }
   }
   .registration__link {
-    @media (max-width: 64em) {
-      color: $font-mid;
-    }
+    margin-bottom: 1.6rem;
   }
 
   .form__link {
     text-decoration: none;
     color: $bg-blue;
     cursor: pointer;
-
-    @media (max-width: 64em) {
-      color: $font-light;
-    }
   }
 
   .registration__link {
-    margin-left: 6rem;
+    text-align: center;
 
     &_signin {
       display: none;

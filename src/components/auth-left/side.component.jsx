@@ -4,10 +4,11 @@ const Side = () => {
   return (
     <div className="side">
       <div className="logo">
-        {/* <img src="'./../../assets/logo.png" alt="Logo" /> */}
-        LOGO
+        <img className="logo__img" src="logo.png" alt="Logo" />
       </div>
-      <h1 className="heading__primary">Let's Check</h1>
+      <h1 className="heading__primary">
+        Let's <br /> Authenticate
+      </h1>
       <div className="social__links">
         <svg
           className="social__links_icon"

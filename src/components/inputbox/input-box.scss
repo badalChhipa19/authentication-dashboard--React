@@ -3,10 +3,14 @@
 .input__box {
   display: flex;
   flex-direction: column;
-  width: 30rem;
+  width: 40rem;
   gap: 1rem;
 
-  @media (max-width: 20em) {
+  @media (max-width: 76.25em) {
+    width: 30rem;
+  }
+
+  @media (max-width: 19.37em) {
     width: 25rem;
   }
 
@@ -18,7 +22,6 @@
     background-color: $bg-input;
     margin-left: 1rem;
     border-radius: 0.6rem;
-    // margin-bottom: 2rem;
 
     &:focus {
       outline: none;
