@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import InputBox from "./../inputbox/input-box.component";
 import InputBtn from "../inputbtn/input-btn.component";
 import {
@@ -19,13 +21,14 @@ const defaultFormFields = {
 const Form = function () {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password } = formFields;
+  const navigate = useNavigate();
 
   const signInWithGoogleHandler = async () => {
     try {
       const { user } = await signInwithGooglePopup();
       createUserDocument(user);
       if (user) {
-        window.location = "/dashboard";
+        navigate("/dashboard");
       }
     } catch (err) {
       console.log(err);
@@ -41,8 +44,9 @@ const Form = function () {
     e.preventDefault();
     try {
       const { user } = await createUserAccount(email, password);
+      await createUserDocument(user, { displayName });
       if (user) {
-        await createUserDocument(user, { displayName });
+        window.location.reload();
       }
     } catch (error) {
       if (error.code === "auth/weak-password") {
@@ -61,7 +65,9 @@ const Form = function () {
     e.preventDefault();
     try {
       const user = await signInUserAccount(email, password);
-      console.log(user);
+      if (user) {
+        navigate("/dashboard");
+      }
     } catch (error) {
       if (error.code === "auth/invalid-login-credentials") {
         alert("Invalid Credentials.");
