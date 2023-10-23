@@ -58,7 +58,7 @@ const AddUsers = () => {
     if (name === "" || email === "" || phone === "") return;
 
     addProfileBtn.style.display = "none";
-    details.style.display = "grid";
+    details.style.display = "flex";
     checkbox.checked = false;
   };
 
@@ -175,29 +175,31 @@ const AddUsers = () => {
       </div>
       <div className="profile__details_box">
         <h2 className="heading__secondary">{name}</h2>
-        <div className="profile__content">
-          <div className="profile__content_icon profile__content_icon--1">
-            <ion-icon name="logo-whatsapp"></ion-icon>
+        <div className="details__container">
+          <div className="profile__content">
+            <div className="profile__content_icon profile__content_icon--1">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </div>
+            <p className="profile__content_text">{phone}</p>
           </div>
-          <p className="profile__content_text">{phone}</p>
-        </div>
-        <div className="profile__content">
-          <div className="profile__content_icon profile__content_icon--2">
-            <ion-icon name="logo-instagram"></ion-icon>
+          <div className="profile__content">
+            <div className="profile__content_icon profile__content_icon--2">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </div>
+            <p className="profile__content_text">{insta}</p>
           </div>
-          <p className="profile__content_text">{insta}</p>
-        </div>
-        <div className="profile__content">
-          <div className="profile__content_icon profile__content_icon--3">
-            <ion-icon name="mail-outline"></ion-icon>
+          <div className="profile__content">
+            <div className="profile__content_icon profile__content_icon--3">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <p className="profile__content_text">{email}</p>
           </div>
-          <p className="profile__content_text">{email}</p>
-        </div>
-        <div className="profile__content">
-          <div className="profile__content_icon profile__content_icon--4">
-            <ion-icon name="logo-youtube"></ion-icon>
+          <div className="profile__content">
+            <div className="profile__content_icon profile__content_icon--4">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </div>
+            <p className="profile__content_text">{yt}</p>
           </div>
-          <p className="profile__content_text">{yt}</p>
         </div>
       </div>
     </div>
