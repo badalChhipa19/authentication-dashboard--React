@@ -19,6 +19,25 @@
       font-size: 2rem;
       align-items: center;
       cursor: pointer;
+      transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
+
+        &:last-child > ion-icon,
+        &:last-child > .item__link {
+          color: #ee8484;
+        }
+
+        & > ion-icon,
+        & > .item__link {
+          color: #98d89e;
+        }
+      }
+
+      &:last-child ion-icon {
+        transform: rotateY(180deg);
+      }
 
       & > ion-icon {
         color: $white;

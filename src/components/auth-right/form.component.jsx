@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { userContext } from "./../../context/user.context";
 import InputBox from "./../inputbox/input-box.component";
 import InputBtn from "../inputbtn/input-btn.component";
 import {
@@ -21,17 +22,25 @@ const defaultFormFields = {
 const Form = function () {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password } = formFields;
+
   const navigate = useNavigate();
+  const { setCurrentUser } = useContext(userContext);
+
+  const setUser = (details) => {
+    setCurrentUser(details);
+    localStorage.setItem("user", JSON.stringify({ user: details }));
+  };
 
   const signInWithGoogleHandler = async () => {
     try {
       const { user } = await signInwithGooglePopup();
       createUserDocument(user);
+      setUser(user.displayName);
       if (user) {
         navigate("/dashboard");
       }
     } catch (err) {
-      console.log(err);
+      alert(err.code);
     }
   };
 
@@ -45,6 +54,7 @@ const Form = function () {
     try {
       const { user } = await createUserAccount(email, password);
       await createUserDocument(user, { displayName });
+
       if (user) {
         window.location.reload();
       }
@@ -66,6 +76,7 @@ const Form = function () {
     try {
       const user = await signInUserAccount(email, password);
       if (user) {
+        setUser((user.displayName = email));
         navigate("/dashboard");
       }
     } catch (error) {

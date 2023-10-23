@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 // import { SessionProvider } from "next-auth/react";
+import { UserProvider } from "./context/user.context";
 
 import "./index.scss";
 import App from "./App";
@@ -11,9 +12,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      {/* <SessionProvider> */}
-      <App />
-      {/* </SessionProvider> */}
+      <UserProvider>
+        <App />
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
+import { useContext } from "react";
 
+import { userContext } from "./../../context/user.context";
 import Sidebar from "../../components/sidebar/sidebar.component";
 import TopNav from "../../components/topnav/topnav.component";
 import Activites from "../../components/activities/activities.component";
 import Product from "../../components/product/product.component";
 
 import "./dashboard.style.scss";
+import { useNavigate } from "react-router-dom";
 
 const fetchData = async (el) => {
   const res = await fetch(`https://jsonplaceholder.typicode.com/${el}`);
@@ -22,7 +25,15 @@ const Dashboard = () => {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
   const [comments, setComment] = useState([]);
-  // const [users, setUsers] = useState([]);
+
+  const navigation = useNavigate();
+  const { currentUser } = useContext(userContext);
+
+  useEffect(() => {
+    if (!currentUser) {
+      navigation("/");
+    }
+  }, [currentUser, navigation]);
 
   useEffect(() => {
     const setData = async () => {

@@ -6,6 +6,7 @@ import {
   signInWithPopup,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 
@@ -35,6 +36,10 @@ provider.setCustomParameters({
 export const auth = getAuth();
 export const signInwithGooglePopup = () => signInWithPopup(auth, provider);
 
+//!SIGNOUT
+
+export const signOutUser = async () => await signOut(auth);
+
 //! Creating User collection;
 
 export const db = getFirestore();
@@ -58,6 +63,8 @@ export const createUserDocument = async (userAuth, additionalDetails = {}) => {
       alert(err);
     }
   }
+
+  return userSnapsort;
 };
 
 //! For signUp
